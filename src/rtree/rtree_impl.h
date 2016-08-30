@@ -5,17 +5,18 @@
 
 namespace geometry {
 
-class RTreeImpl : public RTree {
- public:
+template <unsigned int D>
+class RTreeImpl : public RTree<D> {
+public:
   RTreeImpl();
   virtual ~RTreeImpl();
 
  public:
-  virtual void insert(const RTreeNode& node) override;
-  virtual std::vector<RTreeNode> search(const Rect& queryRect) override;
+  virtual void insert(const RTreeNode<D>& node) override;
+  virtual std::vector<RTreeNode<D>> search(const Rect<D>& queryRect) override;
 
  private:
-  std::vector<RTreeNode> m_nodeVector;
+  std::vector<RTreeNode<D>> m_nodeVector;
 };
 
 }

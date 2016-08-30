@@ -1,42 +1,27 @@
 #ifndef REALWAKKA_RTREE_H_
 #define REALWAKKA_RTREE_H_
 
+#include "geometry.h"
 #include <vector>
 
 namespace geometry
 {
 
-class Point
-{
-  public:
-   Point(int dim) : data_(new int[dim]){}
-   virtual ~Point(){}
-   int* data_;
-}
-
-class Rect
-{
-  public:
-   Rect(int dim) : p1(dim), p2(dim) {}
-   virtual Rect(){}
-
-   Point p1;
-   Point p2;
-};
-
+template <unsigned int D>
 class RTreeNode
 {
-  public:
+public:
    RTreeNode();
    ~RTreeNode();
 
 };
 
+template <unsigned int D>
 class RTree
 {
-  public:
-   virtual void insert(const RTreeNode& node) = 0;
-   virtual std::vector<RTreeNode> search(const Rect& queryRect) = 0;
+public:
+   virtual void insert(const RTreeNode<D>& node) = 0;
+   virtual std::vector<RTreeNode<D>> search(const Rect<D>& queryRect) = 0;
 };
 
 }

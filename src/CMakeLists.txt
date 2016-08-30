@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 2.8)
 
-project(rtree LANGUAGES C CXX)
+project(rtree)
 
 set(RTREE_SRC_DIR CMAKE_CURRENT_SOURCE_DIR})
 set(RTREE_LIB_DIR ${RTREE_SRC_DIR}/../lib)
