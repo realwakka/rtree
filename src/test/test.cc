@@ -3,5 +3,5 @@
 
 int main()
 {
-  RtreeImpl rtree;
+  geometry::RTreeImpl<2> rtree;
 }

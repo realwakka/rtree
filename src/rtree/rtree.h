@@ -11,8 +11,6 @@ template <unsigned int D>
 class RTreeNode
 {
 public:
-   RTreeNode();
-   ~RTreeNode();
 
 };
 

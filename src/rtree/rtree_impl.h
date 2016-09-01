@@ -19,6 +19,31 @@ public:
   std::vector<RTreeNode<D>> m_nodeVector;
 };
 
+ template <unsigned int D>
+   RTreeImpl<D>::RTreeImpl()
+   {
+
+   }
+
+ template <unsigned int D>
+  RTreeImpl<D>::~RTreeImpl()
+  {
+
+  }
+
+ template <unsigned int D>
+  void RTreeImpl<D>::insert(const RTreeNode<D>& node)
+  {
+
+  }
+
+ template <unsigned int D>
+  std::vector<RTreeNode<D>> RTreeImpl<D>::search(const Rect<D>& queryRect)
+  {
+
+  }
+
+
 }
 
 #endif

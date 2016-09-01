@@ -8,8 +8,6 @@ template <unsigned int D>
 class Point
 {
 public:
-  Point();
-  virtual ~Point(){}
   int data_[D];
 };
 
@@ -17,12 +15,21 @@ template <unsigned int D>
 class Rect
 {
 public:
-   Rect() {}
-   virtual ~Rect(){}
+  bool intersects(const Rect<D>& other);
 
-   Point<D> p1;
-   Point<D> p2;
+  Point<D> p1;
+  Point<D> p2;
 };
+
+template <unsigned int D>
+bool Rect<D>::intersects(const Rect<D>& other)
+{
+  for(unsigned int i=0 ; i<D ; ++i)
+    {
+      
+    }
+  return false;
+}
 
 }
 
