@@ -24,11 +24,11 @@ public:
 template <unsigned int D>
 bool Rect<D>::intersects(const Rect<D>& other)
 {
-  for(unsigned int i=0 ; i<D ; ++i)
+    for(unsigned int i=0 ; i<D ; ++i)
     {
-      
+        
     }
-  return false;
+    return false;
 }
 
 }
