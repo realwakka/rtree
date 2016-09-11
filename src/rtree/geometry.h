@@ -1,34 +1,63 @@
 #ifndef RTREE_GEOMETRY_H_
 #define RTREE_GEOMETRY_H_
 
+#include <algorithm>
+
 namespace geometry
 {
 
-template <unsigned int D>
+typedef value_type int;
+typedef dim unsigned int;
+
+template<dim D>
 class Point
 {
-public:
-  int data_[D];
+ public:
+  Point(value_type* data);
+  Point(const Point& point);
+  value_type get(dim d) const { return data[d]; }
+
+ private:
+  value_type data_[D];
 };
 
-template <unsigned int D>
+template<dim D>
+Point(value_type* data)
+{
+  std::copy(data, data + D * sizeof(value_type), data_ );
+}
+
+
+template<dim D>
+Point::Point(const Point& point)
+{
+  std::copy(point.data_, point.data_ + D * sizeof(value_type), data_ );
+}
+
+template <dim D>
 class Rect
 {
-public:
-  bool intersects(const Rect<D>& other);
+ public:
+  Rect(const Rect& rect);
+  bool intersects(const Rect<D>& other) const;
+  Point getMin() const;
+  Point getMin() const;
 
-  Point<D> p1;
-  Point<D> p2;
+ private:
+  Point<D> min_;
+  Point<D> max_;
 };
 
-template <unsigned int D>
-bool Rect<D>::intersects(const Rect<D>& other)
+
+template <dim D>
+bool Rect<D>::intersects(const Rect<D>& other) const
 {
-    for(unsigned int i=0 ; i<D ; ++i)
-    {
-        
-    }
-    return false;
+  for(dim i=0 ; i<D ; ++i)
+    if( max_.get(i) < other.getMin().get(i) || 
+        min_.get(i) > other.getMax().get(i))
+      return false;
+
+  return true;
 }
 
 }

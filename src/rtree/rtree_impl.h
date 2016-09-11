@@ -5,39 +5,38 @@
 
 namespace geometry {
 
-
-
 template <unsigned int D>
 class RTreeInternalNode : public RTreeNode<D>
 {
-  public:
-    
-  private:
-    class ChildList
-    {
-      public:
+ public:
+  
+ private:
+  class ChildList
+  {
+   public:
         
-      private:
-        std::vector<RTreeNode<D>&> childs_;
-    };
+   private:
+    std::vector<RTreeNode<D>&> childs_;
+  };
 
-    ChildList child_list_;
+  ChildList child_list_;
 
 };
 
 
 template <unsigned int D>
-class RTreeImpl : public RTree<D> {
-  public:
-    RTreeImpl();
-    virtual ~RTreeImpl();
+class RTreeImpl : public RTree<D> 
+{
+ public:
+  RTreeImpl();
+  virtual ~RTreeImpl();
 
-  public:
-    virtual void insert(const RTreeNode<D>& node) override;
-    virtual std::vector<RTreeNode<D>> search(const Rect<D>& queryRect) override;
+ public:
+  virtual void insert(const RTreeNode<D>& node) override;
+  virtual std::vector<RTreeNode<D>> search(const Rect<D>& queryRect) override;
 
-  private:
-    std::vector<RTreeNode<D>> m_nodeVector;
+ private:
+  std::vector<RTreeNode<D>> m_nodeVector;
 };
 
 template <unsigned int D>
