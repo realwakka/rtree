@@ -1,25 +1,11 @@
 #ifndef REALWAKKA_RTREE_H_
 #define REALWAKKA_RTREE_H_
 
-#include "geometry.h"
+#include "geometry/geometry.h"
 #include <vector>
 
 namespace geometry
 {
-
-
-template <unsigned int D, typename DataType>
-class RTreeLeafNode : public RTreeNode<D>
-{
- public:
-  RTreeLeafNode(const Rect<D>& rect, const DataType& data);
- private:
-  Rect<D> rect_;
-};
-
-
-
-
 
 template <unsigned int D, typename DataType>
 class RTree
